@@ -1,11 +1,10 @@
-#include<iostream>
+#include <iostream>
+
 using namespace std;
 
 int arr[20];
 int n;
-
-void input()
-{
+void input(){
     while (true)
     {
         cout <<"masukan banyaknya elemen array : ";
@@ -25,29 +24,20 @@ void input()
         cout << "data ke-" << (i + 1 ) << ": ";
         cin >> arr[i];
     }
-}
-
-
-
-void ilamti()
-{
-    int pass=1;
-    do
-    {
-        for (int i = 0; i <= n - 1- pass ; i++)
-        {if (arr[i] > arr[i + 1])
-        {
-            int temp = arr[i];
-            arr[i] = arr[i + 1];
-            arr[i + 1] = temp; 
-        }  
+}void bubbleSortArray(){ //procedur untuk mengurutkan array
+    int pass= 1; //step 1
+    do {
+        for(int j = 0; j <= n - 1 - pass; j++){ //step 2
+            if(arr[j] > arr[j + 1])
+            { //step 3
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
         }
-        pass = pass + 1;
-    }   while (pass <= n - 1);
-}
-
-void display ()
-{
+        pass = pass + 1; //step 4 
+    } while (pass <= n - 1); //step 5
+} void display (){
     cout << endl;
     cout << "=================================" << endl;
     cout << "Element Array yang telah tersusun" << endl;
@@ -59,10 +49,9 @@ void display ()
     cout << endl;  
 }
 
-int main()
-{
-    input();
-    ilamti();
-    display();
-    system("pause");
+int main(){
+ input();
+        bubbleSortArray();
+        display();
+        system("pause");
 }

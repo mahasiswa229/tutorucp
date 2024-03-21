@@ -1,11 +1,9 @@
 #include<iostream>
 using namespace std;
 
-int arr[20];
-int n;
-
-void input()
-{
+    int i,j,n,temp;
+    int arr[20];
+void input(){
     while (true)
     {
         cout <<"masukan banyaknya elemen array : ";
@@ -26,28 +24,24 @@ void input()
         cin >> arr[i];
     }
 }
-
-
-
-void ilamti()
+void InsertionSort()
 {
-    int pass=1;
-    do
-    {
-        for (int i = 0; i <= n - 1- pass ; i++)
-        {if (arr[i] > arr[i + 1])
+    for(i = 1; i <= n-1; i++) 
+    { //step 1
+        temp = arr[i]; //step 2
+
+        j = i - 1; //step 3
+
+        while (j >= 0 && arr[j] > temp) //step 4
         {
-            int temp = arr[i];
-            arr[i] = arr[i + 1];
-            arr[i + 1] = temp; 
-        }  
+            arr[j+1] = arr[j]; //step 4a
+            j--; //step 4b
         }
-        pass = pass + 1;
-    }   while (pass <= n - 1);
-}
 
-void display ()
-{
+        arr[j + 1] = temp; //step 5
+    }
+
+} void display(){
     cout << endl;
     cout << "=================================" << endl;
     cout << "Element Array yang telah tersusun" << endl;
@@ -56,13 +50,14 @@ void display ()
         cout << arr[j] << endl; //output setiap element array pada garis baru
     }
     cout << "jumlah pass = " << n-1  << endl;
-    cout << endl;  
+    cout << endl; 
 }
 
-int main()
-{
+int main(){
     input();
-    ilamti();
+    InsertionSort();
     display();
+
     system("pause");
+    return 0;
 }
